@@ -4,3 +4,4 @@ C:\tmp\shopping-cart-with-promo-code>git remote add origin git@github.com:Annie-
 C:\tmp\shopping-cart-with-promo-code>git push -u origin master
 
 C:\tmp\shopping-cart-with-promo-code>npm install bootstrap --save
+C:\tmp\shopping-cart-with-promo-code>npm install redux react-redux redux-thunk --save
