@@ -1,0 +1,6 @@
+C:\tmp>npx create-react-app shopping-cart-with-promo-code
+C:\tmp>cd shopping-cart-with-promo-code
+C:\tmp\shopping-cart-with-promo-code>git remote add origin git@github.com:Annie-Huang/shopping-cart-with-promo-code.git
+C:\tmp\shopping-cart-with-promo-code>git push -u origin master
+
+C:\tmp\shopping-cart-with-promo-code>npm install bootstrap --save
