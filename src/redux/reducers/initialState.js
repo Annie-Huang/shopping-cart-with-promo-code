@@ -1,4 +1,4 @@
 export default {
-    courses: [],
+    products: [],
     apiCallsInProgress: 0
 };
