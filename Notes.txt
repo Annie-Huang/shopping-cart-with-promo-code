@@ -6,10 +6,13 @@ C:\tmp\shopping-cart-with-promo-code>git push -u origin master
 C:\tmp\shopping-cart-with-promo-code>npm install bootstrap --save
 C:\tmp\shopping-cart-with-promo-code>npm install redux react-redux redux-thunk --save
 C:\tmp\shopping-cart-with-promo-code>npm install redux-immutable-state-invariant --save-dev
-
+C:\tmp\shopping-cart-with-promo-code>npm install prop-types --save
 
 Todo:
 1. Create ProductComponent.
 2. Format amount.
 3. toaster
 4. Spinner.
+5. List the discount code description when discount code is apply. Error msg if it's invalid discount code.
+6. Use express and json-server rather than mock api for backend.
+7. Do eslint.
