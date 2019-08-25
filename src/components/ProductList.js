@@ -9,7 +9,7 @@ export const ProductList = ({
 }) => {
     useEffect(() => {
         loadProducts().catch(error => {
-            alert("Loading courses failed" + error);
+            alert("Loading products failed" + error);
         });
     }, []);
 
@@ -56,7 +56,7 @@ export const ProductList = ({
 
 ProductList.propTypes = {
     products: PropTypes.array.isRequired,
-    loadProducts: PropTypes.func.isRequired,
+    loadProducts: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => ({
