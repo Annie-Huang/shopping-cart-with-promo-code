@@ -6,3 +6,8 @@ C:\tmp\shopping-cart-with-promo-code>git push -u origin master
 C:\tmp\shopping-cart-with-promo-code>npm install bootstrap --save
 C:\tmp\shopping-cart-with-promo-code>npm install redux react-redux redux-thunk --save
 C:\tmp\shopping-cart-with-promo-code>npm install redux-immutable-state-invariant --save-dev
+
+
+Todo:
+1. Create ProductComponent.
+2. Format amount.

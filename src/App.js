@@ -8,7 +8,7 @@ import ProductList from "./components/ProductList/ProductList";
 function App() {
     return (
         <div className="container-fluid">
-            about
+            <h1>Please select your products from below...</h1>
             <ProductList />
         </div>
     );
