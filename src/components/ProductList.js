@@ -1,11 +1,13 @@
 import React,  { useEffect } from 'react';
 import {connect} from 'react-redux';
 import * as productActions from "../redux/actions/productActions";
+import * as shoppingCartActions from "../redux/actions/shoppingCartActions";
 import PropTypes from 'prop-types';
 
 export const ProductList = ({
     products,
-    loadProducts
+    loadProducts,
+    updateItemInCart
 }) => {
     useEffect(() => {
         loadProducts().catch(error => {
@@ -27,7 +29,7 @@ export const ProductList = ({
             <div className="card-footer">
                 <button type="button"
                         className="btn btn-primary"
-                        onClick={()=>this.updateItemInCart({product, quantity: 1})}
+                        onClick={() => updateItemInCart({product, quantity: 1})}
                 >
                     Add 1 item
                 </button>
@@ -35,7 +37,7 @@ export const ProductList = ({
                 {product.productInCart &&
                 <button type="button"
                         className="btn btn-secondary"
-                        onClick={() => this.updateItemInCart({product, quantity: -1})}
+                        onClick={() => updateItemInCart({product, quantity: -1})}
                 >
                     Remove 1 item
                 </button>
@@ -56,7 +58,8 @@ export const ProductList = ({
 
 ProductList.propTypes = {
     products: PropTypes.array.isRequired,
-    loadProducts: PropTypes.func.isRequired
+    loadProducts: PropTypes.func.isRequired,
+    updateItemInCart: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -64,7 +67,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = {
-    loadProducts: productActions.loadProducts
+    loadProducts: productActions.loadProducts,
+    updateItemInCart: shoppingCartActions.updateItemInCart
 };
 
 export default connect(
