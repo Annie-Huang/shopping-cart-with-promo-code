@@ -1,6 +1,6 @@
 import React,  { useEffect } from 'react';
 import {connect} from 'react-redux';
-import * as productActions from "../../redux/actions/productActions";
+import * as productActions from "../redux/actions/productActions";
 import PropTypes from 'prop-types';
 
 export const ProductList = ({

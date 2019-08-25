@@ -3,7 +3,7 @@ import './App.css';
 // !!!! Don't ever use
 // import { ProductList } from "./components/ProductList/ProductList";
 // It will failed the build, we need the default one that got connect, not the named one use for testing.
-import ProductList from "./components/ProductList/ProductList";
+import ProductList from "./components/ProductList";
 
 function App() {
     return (

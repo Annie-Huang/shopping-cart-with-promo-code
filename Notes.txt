@@ -11,3 +11,5 @@ C:\tmp\shopping-cart-with-promo-code>npm install redux-immutable-state-invariant
 Todo:
 1. Create ProductComponent.
 2. Format amount.
+3. toaster
+4. Spinner.
