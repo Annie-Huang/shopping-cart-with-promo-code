@@ -1,0 +1,18 @@
+[
+    {
+        "id": "RRD4D32",
+        "description": "10% discount for orders above $1000 (pre-discount)"
+    },
+    {
+        "id": "44F4T11",
+        "description": "15% discount for orders above $1500 (pre-discount)"
+    },
+    {
+        "id": "FF9543D1",
+        "description": "Reduces the docgen price to $8.99 a unit when at least 10 documents are purchased"
+    },
+    {
+        "id": "YYGWKJD",
+        "description": "Reduces the form price to $89.99 a unit when at least 1 wf is purchased"
+    }
+]
