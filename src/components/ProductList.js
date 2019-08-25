@@ -11,7 +11,7 @@ export const ProductList = ({
         loadProducts().catch(error => {
             alert("Loading products failed" + error);
         });
-    }, []);
+    }, [loadProducts]);
 
     const children = products.map(product =>
         <div className="card" key={product.id}>

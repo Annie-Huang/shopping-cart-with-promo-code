@@ -11,7 +11,7 @@ export const ShoppingCart  = ({
         loadDiscountCodes().catch(error => {
             alert("Loading discount codes failed" + error);
         });
-    }, []);
+    }, [loadDiscountCodes]);
 
     const children = discountCodes.map(discountCode =>
         <div key={discountCode.id}>{discountCode.id} : {discountCode.description}</div>
