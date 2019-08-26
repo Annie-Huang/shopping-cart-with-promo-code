@@ -7,6 +7,7 @@ C:\tmp\shopping-cart-with-promo-code>npm install bootstrap --save
 C:\tmp\shopping-cart-with-promo-code>npm install redux react-redux redux-thunk --save
 C:\tmp\shopping-cart-with-promo-code>npm install redux-immutable-state-invariant --save-dev
 C:\tmp\shopping-cart-with-promo-code>npm install prop-types --save
+C:\tmp\shopping-cart-with-promo-code>npm install lodash.sumby --save
 
 Todo:
 1. Create ProductComponent.
@@ -18,3 +19,5 @@ Todo:
 7. Do eslint.
 8. Handle adding multiple floating number in javascript
 9. Handle remove item from the list.
+10. Unit test.
+
