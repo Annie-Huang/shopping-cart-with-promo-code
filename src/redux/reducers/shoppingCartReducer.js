@@ -10,6 +10,7 @@ const shoppingCartReducer = (state=initialState.cartItems, action) => {
             const newItem = {
                 product: action.data.product,
                 quantity: 1,
+                subTotal: action.data.product.price
             };
             return [
                 ...state,
@@ -22,6 +23,7 @@ const shoppingCartReducer = (state=initialState.cartItems, action) => {
             updateItem.quantity += action.data.quantity;
 
             if (updateItem.quantity > 0) {
+                updateItem.subTotal = Number(( updateItem.quantity * updateItem.product.price).toFixed(2));
                 // Update the cartItem with new quantity info for add.
                 return state.map(
                     item => item.product.id === action.data.product.id ? updateItem : item

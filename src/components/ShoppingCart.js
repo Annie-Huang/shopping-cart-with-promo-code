@@ -1,6 +1,7 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
+import sumby from 'lodash.sumby';
 import * as discountCodeActions from "../redux/actions/discountCodeActions";
 
 export const ShoppingCart  = ({
@@ -8,11 +9,14 @@ export const ShoppingCart  = ({
     loadDiscountCodes,
     cartItems,
 }) => {
+    const [total, setTotal] = useState(0);
+
     useEffect(() => {
         loadDiscountCodes().catch(error => {
             alert("Loading discount codes failed" + error);
         });
-    }, [loadDiscountCodes]);
+        setTotal(Number(sumby(cartItems, 'subTotal').toFixed(2)));
+    }, [loadDiscountCodes, cartItems]);
 
     const discountCodeList = discountCodes.map(discountCode =>
         <div key={discountCode.id}>{discountCode.id} : {discountCode.description}</div>
@@ -23,7 +27,7 @@ export const ShoppingCart  = ({
             <div className='col-md-2'>{cartItem.product.name}</div>
             <div className='col-md-2'>Unit Price: ${cartItem.product.price}</div>
             <div className='col-md-2'>Quantity: {cartItem.quantity}</div>
-            <div className='col-md-2'>Subtotal: ${cartItem.quantity * cartItem.product.price}</div>
+            <div className='col-md-2'>Subtotal: ${cartItem.subTotal}</div>
         </div>
     );
 
@@ -41,7 +45,7 @@ export const ShoppingCart  = ({
                     <br/>
                     <div className='row'>
                         <div className='col-md-12'>
-                            {/*<h3 className="card-title">Total: ${this.props.basket.total}</h3>*/}
+                            <h3 className="card-title">Total: ${total}</h3>
                         </div>
                     </div>
                 </div>
