@@ -5,6 +5,7 @@ import sumby from 'lodash.sumby';
 import * as discountCodeActions from "../redux/actions/discountCodeActions";
 import ShoppingCartService from '../lib/ShoppingCartService';
 import * as shoppingCartActions from "../redux/actions/shoppingCartActions";
+import styles from './ShoppingCart.module.css';
 
 export const ShoppingCart  = ({
     discountCodes,
@@ -60,6 +61,7 @@ export const ShoppingCart  = ({
 
     return (
         <div>
+            <div className={styles.warning}>Test CSS Modules</div>
             <h5>Available discount codes are as following. Please keep in mind that you can only apply for one.</h5>
             {discountCodeList}
             {cartItems.length > 0 &&
