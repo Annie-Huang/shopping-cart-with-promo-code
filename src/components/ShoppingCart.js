@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import sumby from 'lodash.sumby';
 import * as discountCodeActions from "../redux/actions/discountCodeActions";
+import ShoppingCartService from '../lib/ShoppingCartService';
 
 export const ShoppingCart  = ({
     discountCodes,
@@ -39,20 +40,29 @@ export const ShoppingCart  = ({
 
     const applyPromoCode = () => {
         console.log('promoCode=', promoCode);
+        setDiscountAmount(
+            promoCode === '' ? 0 : ShoppingCartService.calculateDiscountAmount(cartItems, total, promoCode)
+        );
     };
 
     return (
         <div>
             <h5>Available discount codes are as following. Please keep in mind that you can only apply for one.</h5>
             {discountCodeList}
-            {/*{cartItems.length > 0 &&*/}
-            {1==1 &&
+            {cartItems.length > 0 &&
+            // {1==1 &&
             <div className="card">
                 <div className="card-header bg-info text-white">
                     <h3 className="card-title">Your Basket:</h3>
                 </div>
                 <div className="card-body">
                     {cartItemList}
+                    <br/>
+                    <div className='row'>
+                        <div className='col-md-12'>
+                            <h3 className="card-title">SubTotal: ${total}</h3>
+                        </div>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <div className='row'>
@@ -72,7 +82,7 @@ export const ShoppingCart  = ({
                     <br/>
                     <div className='row'>
                         <div className='col-md-12'>
-                            <h3 className="card-title">Total: ${total}</h3>
+                            <h3 className="card-title">Total: ${total-discountAmount}</h3>
                         </div>
                     </div>
                     <div className='row'>
