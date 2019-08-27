@@ -45,6 +45,11 @@ export const ShoppingCart  = ({
         );
     };
 
+    const clearPromoCode = () => {
+        setPromoCode('');
+        setDiscountAmount(0);
+    };
+
     return (
         <div>
             <h5>Available discount codes are as following. Please keep in mind that you can only apply for one.</h5>
@@ -73,6 +78,11 @@ export const ShoppingCart  = ({
                                     className="btn btn-sm btn-primary"
                                     onClick={() => applyPromoCode()}
                             >Apply</button>
+                            &nbsp;&nbsp;
+                            <button type="button"
+                                    className="btn btn-sm btn-secondary"
+                                    onClick={() => clearPromoCode()}
+                            >Clear</button>
                         </div>
                     </div>
                     <br/>
