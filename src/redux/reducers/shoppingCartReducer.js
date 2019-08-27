@@ -37,6 +37,8 @@ const shoppingCartReducer = (state=initialState.cartItems, action) => {
             }
         }
 
+    } else if (action.type === types.CLEAR_CART) {
+        return [];
     }
 
     return state;

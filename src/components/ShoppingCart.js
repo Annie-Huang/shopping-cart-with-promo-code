@@ -4,11 +4,13 @@ import {connect} from "react-redux";
 import sumby from 'lodash.sumby';
 import * as discountCodeActions from "../redux/actions/discountCodeActions";
 import ShoppingCartService from '../lib/ShoppingCartService';
+import * as shoppingCartActions from "../redux/actions/shoppingCartActions";
 
 export const ShoppingCart  = ({
     discountCodes,
     loadDiscountCodes,
     cartItems,
+    clearCart
 }) => {
     const [total, setTotal] = useState(0);
     const [promoCode, setPromoCode] = useState('');
@@ -70,8 +72,14 @@ export const ShoppingCart  = ({
                     {cartItemList}
                     <br/>
                     <div className='row'>
-                        <div className='col-md-12'>
+                        <div className='col-md-2'>
                             <h3 className="card-title">SubTotal: ${total}</h3>
+                        </div>
+                        <div className='col-md-2'>
+                            <button type="button"
+                                    className="btn btn-sm btn-primary"
+                                    onClick={() => clearCart()}
+                            >Clear Cart</button>
                         </div>
                     </div>
                 </div>
@@ -115,7 +123,8 @@ export const ShoppingCart  = ({
 ShoppingCart.propTypes = {
     discountCodes: PropTypes.array.isRequired,
     cartItems: PropTypes.array.isRequired,
-    loadDiscountCodes: PropTypes.func.isRequired
+    loadDiscountCodes: PropTypes.func.isRequired,
+    clearCart: PropTypes.func.isRequired
 };
 
 
@@ -125,7 +134,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = {
-    loadDiscountCodes: discountCodeActions.loadDiscountCodes
+    loadDiscountCodes: discountCodeActions.loadDiscountCodes,
+    clearCart: shoppingCartActions.clearCart
 };
 
 export default connect(
