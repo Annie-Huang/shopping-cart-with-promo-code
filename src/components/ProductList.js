@@ -62,8 +62,19 @@ ProductList.propTypes = {
     updateItemInCart: PropTypes.func.isRequired
 };
 
+export const updateProductsWithInCartInfo = (products, cartItems) => {
+    const updatedProducts = [];
+    products.forEach(product => {
+        const matchCartItem = cartItems.find((cartItem) => cartItem.product.id === product.id);
+        updatedProducts.push({...product, productInCart: !!matchCartItem});
+    });
+
+    return updatedProducts;
+};
+
 const mapStateToProps = (state, ownProps) => ({
-    products: state.products,
+    products: updateProductsWithInCartInfo(state.products, state.cartItems),
+
 });
 
 const mapDispatchToProps = {
