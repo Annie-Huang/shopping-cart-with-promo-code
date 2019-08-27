@@ -25,6 +25,12 @@ export const ShoppingCart  = ({
         setTotal(Number(sumby(cartItems, 'subTotal').toFixed(2)));
     }, [cartItems]);
 
+    useEffect(() => {
+        setDiscountAmount(
+            promoCode === '' ? 0 : ShoppingCartService.calculateDiscountAmount(cartItems, total, promoCode)
+        );
+    }, [total]);
+
     const discountCodeList = discountCodes.map(discountCode =>
         <div key={discountCode.id}>{discountCode.id} : {discountCode.description}</div>
     );
