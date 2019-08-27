@@ -87,16 +87,16 @@ export const ShoppingCart  = ({
                     <div className='row'>
                         <div className='col-sm-1'>Discount Code:</div>
                         <input className='col-sm-1' type="text"  value={promoCode} onChange={e => setPromoCode(e.target.value)}/>
-                        <div className='col-sm-1'>
+                        <div className='col-sm-2'>
                             <button type="button"
                                     className="btn btn-sm btn-primary"
                                     onClick={() => applyPromoCode()}
-                            >Apply</button>
+                            >Apply Code</button>
                             &nbsp;&nbsp;
                             <button type="button"
                                     className="btn btn-sm btn-secondary"
                                     onClick={() => clearPromoCode()}
-                            >Clear</button>
+                            >Clear Code</button>
                         </div>
                     </div>
                     <br/>
