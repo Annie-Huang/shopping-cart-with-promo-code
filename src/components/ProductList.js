@@ -6,6 +6,7 @@ import * as discountCodeActions from "../redux/actions/discountCodeActions";
 import * as shoppingCartActions from "../redux/actions/shoppingCartActions";
 import Spinner from "./common/Spinner";
 import styles from "./ProductList.module.css";
+import toastr from 'toastr/toastr';
 
 export const ProductList = ({
     products,
@@ -26,6 +27,12 @@ export const ProductList = ({
         });
     }, [loadDiscountCodes]);
 
+    const updateShoppingCart = (data) => {
+        updateItemInCart(data);
+        const action = data.quantity === 1 ? 'Add' : 'Remove';
+        toastr.success(`${action} one ${data.product.name} success`);
+    };
+
     const productList = products.map(product =>
         <div className="card" key={product.id}>
             <div className="card-header text-center text-white bg-primary">
@@ -40,7 +47,7 @@ export const ProductList = ({
             <div className="card-footer">
                 <button type="button"
                         className="btn btn-primary"
-                        onClick={() => updateItemInCart({product, quantity: 1})}
+                        onClick={() => updateShoppingCart({product, quantity: 1})}
                 >
                     Add 1 item
                 </button>
@@ -48,7 +55,7 @@ export const ProductList = ({
                 {product.productInCart &&
                 <button type="button"
                         className="btn btn-secondary"
-                        onClick={() => updateItemInCart({product, quantity: -1})}
+                        onClick={() => updateShoppingCart({product, quantity: -1})}
                 >
                     Remove 1 item
                 </button>

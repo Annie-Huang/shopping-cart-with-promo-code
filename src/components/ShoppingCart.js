@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import sumby from 'lodash.sumby';
 import ShoppingCartService from '../lib/ShoppingCartService';
 import * as shoppingCartActions from "../redux/actions/shoppingCartActions";
+import toastr from "toastr";
 
 export const ShoppingCart  = ({
     cartItems,
@@ -37,11 +38,18 @@ export const ShoppingCart  = ({
         setDiscountAmount(
             promoCode === '' ? 0 : ShoppingCartService.calculateDiscountAmount(cartItems, total, promoCode)
         );
+        toastr.success(`Apply discount code success`);
     };
 
     const clearPromoCode = () => {
         setPromoCode('');
         setDiscountAmount(0);
+        toastr.success(`Clear discount code success`);
+    };
+
+    const clearShoppingCart = () => {
+        clearCart();
+        toastr.success(`Clear cart success`);
     };
 
     return (
@@ -61,7 +69,7 @@ export const ShoppingCart  = ({
                         <div className='col-md-2'>
                             <button type="button"
                                     className="btn btn-sm btn-primary"
-                                    onClick={() => clearCart()}
+                                    onClick={() => clearShoppingCart()}
                             >Clear Cart</button>
                         </div>
                     </div>

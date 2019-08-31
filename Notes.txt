@@ -13,13 +13,13 @@ C:\tmp\shopping-cart-with-promo-code>npm install toastr --save
 Todo:
 1. Create ProductComponent.
 2. Format amount.
-3. toaster
-4. Spinner.
 5. List the discount code description when discount code is apply. Error msg if it's invalid discount code.
 6. Use express and json-server rather than mock api for backend.
 7. Do eslint.
 10. Unit test.
 
 Done:
+3. toaster
+4. Spinner.
 8. Handle adding multiple floating number in javascript
 9. Handle remove item from the list.

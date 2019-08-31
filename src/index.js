@@ -6,6 +6,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import configureStore from "./redux/configureStore";
 import { Provider as ReduxProvider } from "react-redux";
+import 'toastr/build/toastr.min.css';
 
 const store = configureStore();
 
