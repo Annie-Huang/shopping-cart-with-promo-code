@@ -7,7 +7,7 @@ class ShoppingCartService {
             discountAmount = Number((total * 0.15).toFixed(2));
         } else if (promoCode === 'FF9543D1') {
             const docgen = cartItems.find(item => item.product.id === 'docgen');
-            if (docgen && docgen.quantity > 10) {
+            if (docgen && docgen.quantity >= 10) {
                 discountAmount = docgen.quantity; // $1 discount for each dogen.
             }
         } else if (promoCode === 'YYGWKJD') {
