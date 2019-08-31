@@ -36,6 +36,7 @@
     ]
   },
   "devDependencies": {
-    "redux-immutable-state-invariant": "^2.1.0"
+    "redux-immutable-state-invariant": "^2.1.0",
+    "redux-mock-store": "^1.5.3"
   }
 }
