@@ -25,14 +25,12 @@ export const ShoppingCart  = ({
     }, [loadDiscountCodes]);
 
     useEffect(() => {
-        setTotal(Number(sumby(cartItems, 'subTotal').toFixed(2)));
-    }, [cartItems]);
-
-    useEffect(() => {
+        const newTotal = Number(sumby(cartItems, 'subTotal').toFixed(2));
+        setTotal(newTotal); // cannot use total straightaway because all setXxx methods async calls.
         setDiscountAmount(
-            promoCode === '' ? 0 : ShoppingCartService.calculateDiscountAmount(cartItems, total, promoCode)
+            promoCode === '' ? 0 : ShoppingCartService.calculateDiscountAmount(cartItems, newTotal, promoCode)
         );
-    }, [total]);
+    }, [cartItems]);
 
     const discountCodeList = discountCodes.map(discountCode =>
         <div key={discountCode.id}>{discountCode.id} : {discountCode.description}</div>
@@ -65,7 +63,6 @@ export const ShoppingCart  = ({
             <h5>Available discount codes are as following. Please keep in mind that you can only apply for one.</h5>
             {discountCodeList}
             {cartItems.length > 0 &&
-            // {1==1 &&
             <div className="card">
                 <div className="card-header bg-info text-white">
                     <h3 className="card-title">Your Basket:</h3>
@@ -87,9 +84,9 @@ export const ShoppingCart  = ({
                 </div>
                 <div className="card-footer">
                     <div className='row'>
-                        <div className='col-sm-1'>Discount Code:</div>
+                        <div className='col-sm-2'>Discount Code:</div>
                         <input className='col-sm-1' type="text"  value={promoCode} onChange={e => setPromoCode(e.target.value)}/>
-                        <div className='col-sm-2'>
+                        <div className='col-sm-4'>
                             <button type="button"
                                     className="btn btn-sm btn-primary"
                                     onClick={() => applyPromoCode()}
