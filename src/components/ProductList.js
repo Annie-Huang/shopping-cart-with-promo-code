@@ -62,7 +62,7 @@ export const ProductList = ({
     );
 
     return (
-        products.length === 0 ?
+        products.length === 0 || discountCodes === 0 ?
             <Spinner/> :
             <>
                 <div className="card-deck">
