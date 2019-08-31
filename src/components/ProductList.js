@@ -1,13 +1,18 @@
 import React,  { useEffect } from 'react';
 import {connect} from 'react-redux';
-import * as productActions from "../redux/actions/productActions";
-import * as shoppingCartActions from "../redux/actions/shoppingCartActions";
 import PropTypes from 'prop-types';
+import * as productActions from "../redux/actions/productActions";
+import * as discountCodeActions from "../redux/actions/discountCodeActions";
+import * as shoppingCartActions from "../redux/actions/shoppingCartActions";
+import Spinner from "./common/Spinner";
+import styles from "./ProductList.module.css";
 
 export const ProductList = ({
     products,
     loadProducts,
-    updateItemInCart
+    updateItemInCart,
+    discountCodes,
+    loadDiscountCodes,
 }) => {
     useEffect(() => {
         loadProducts().catch(error => {
@@ -15,7 +20,13 @@ export const ProductList = ({
         });
     }, [loadProducts]);
 
-    const children = products.map(product =>
+    useEffect(() => {
+        loadDiscountCodes().catch(error => {
+            alert("Loading discount codes failed" + error);
+        });
+    }, [loadDiscountCodes]);
+
+    const productList = products.map(product =>
         <div className="card" key={product.id}>
             <div className="card-header text-center text-white bg-primary">
                 <h4 className="card-title">{product.name}</h4>
@@ -46,20 +57,31 @@ export const ProductList = ({
         </div>
     );
 
+    const discountCodeList = discountCodes.map(discountCode =>
+        <div key={discountCode.id}>{discountCode.id} : {discountCode.description}</div>
+    );
+
     return (
-        <>
-            <div className="card-deck">
-                {children}
-            </div>
-            <br/>
-        </>
+        products.length === 0 ?
+            <Spinner/> :
+            <>
+                <div className="card-deck">
+                    {productList}
+                </div>
+                <br/>
+                <div className={styles.warning}>Test CSS Modules</div>
+                <h5>Available discount codes are as following. Please keep in mind that you can only apply for one.</h5>
+                {discountCodeList}
+            </>
     )
 };
 
 ProductList.propTypes = {
     products: PropTypes.array.isRequired,
     loadProducts: PropTypes.func.isRequired,
-    updateItemInCart: PropTypes.func.isRequired
+    updateItemInCart: PropTypes.func.isRequired,
+    discountCodes: PropTypes.array.isRequired,
+    loadDiscountCodes: PropTypes.func.isRequired,
 };
 
 export const updateProductsWithInCartInfo = (products, cartItems) => {
@@ -74,12 +96,13 @@ export const updateProductsWithInCartInfo = (products, cartItems) => {
 
 const mapStateToProps = (state, ownProps) => ({
     products: updateProductsWithInCartInfo(state.products, state.cartItems),
-
+    discountCodes: state.discountCodes,
 });
 
 const mapDispatchToProps = {
     loadProducts: productActions.loadProducts,
-    updateItemInCart: shoppingCartActions.updateItemInCart
+    updateItemInCart: shoppingCartActions.updateItemInCart,
+    loadDiscountCodes: discountCodeActions.loadDiscountCodes,
 };
 
 export default connect(

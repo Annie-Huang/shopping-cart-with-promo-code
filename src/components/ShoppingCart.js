@@ -2,14 +2,10 @@ import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import sumby from 'lodash.sumby';
-import * as discountCodeActions from "../redux/actions/discountCodeActions";
 import ShoppingCartService from '../lib/ShoppingCartService';
 import * as shoppingCartActions from "../redux/actions/shoppingCartActions";
-import styles from './ShoppingCart.module.css';
 
 export const ShoppingCart  = ({
-    discountCodes,
-    loadDiscountCodes,
     cartItems,
     clearCart
 }) => {
@@ -19,12 +15,6 @@ export const ShoppingCart  = ({
 
 
     useEffect(() => {
-        loadDiscountCodes().catch(error => {
-            alert("Loading discount codes failed" + error);
-        });
-    }, [loadDiscountCodes]);
-
-    useEffect(() => {
         const newTotal = Number(sumby(cartItems, 'subTotal').toFixed(2));
         setTotal(newTotal); // cannot use total straightaway because all setXxx methods async calls.
         setDiscountAmount(
@@ -32,11 +22,8 @@ export const ShoppingCart  = ({
         );
     }, [cartItems]);
 
-    const discountCodeList = discountCodes.map(discountCode =>
-        <div key={discountCode.id}>{discountCode.id} : {discountCode.description}</div>
-    );
 
-    const cartItemList = cartItems.map((cartItem, index) =>
+    const children = cartItems.map((cartItem, index) =>
         <div className='row' key={index}>
             <div className='col-md-2'>{cartItem.product.name}</div>
             <div className='col-md-2'>Unit Price: ${cartItem.product.price}</div>
@@ -58,17 +45,14 @@ export const ShoppingCart  = ({
     };
 
     return (
-        <div>
-            <div className={styles.warning}>Test CSS Modules</div>
-            <h5>Available discount codes are as following. Please keep in mind that you can only apply for one.</h5>
-            {discountCodeList}
+        <>
             {cartItems.length > 0 &&
             <div className="card">
                 <div className="card-header bg-info text-white">
                     <h3 className="card-title">Your Basket:</h3>
                 </div>
                 <div className="card-body">
-                    {cartItemList}
+                    {children}
                     <br/>
                     <div className='row'>
                         <div className='col-md-2'>
@@ -115,25 +99,20 @@ export const ShoppingCart  = ({
                     </div>
                 </div>
             </div>}
-        </div>
+        </>
     );
 };
 
 ShoppingCart.propTypes = {
-    discountCodes: PropTypes.array.isRequired,
     cartItems: PropTypes.array.isRequired,
-    loadDiscountCodes: PropTypes.func.isRequired,
     clearCart: PropTypes.func.isRequired
 };
 
-
 const mapStateToProps = (state, ownProps) => ({
-    discountCodes: state.discountCodes,
     cartItems: state.cartItems,
 });
 
 const mapDispatchToProps = {
-    loadDiscountCodes: discountCodeActions.loadDiscountCodes,
     clearCart: shoppingCartActions.clearCart
 };
 

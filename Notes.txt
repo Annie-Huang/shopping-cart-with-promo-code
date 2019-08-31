@@ -17,7 +17,8 @@ Todo:
 5. List the discount code description when discount code is apply. Error msg if it's invalid discount code.
 6. Use express and json-server rather than mock api for backend.
 7. Do eslint.
-8. Handle adding multiple floating number in javascript
-9. Handle remove item from the list.
 10. Unit test.
 
+Done:
+8. Handle adding multiple floating number in javascript
+9. Handle remove item from the list.
