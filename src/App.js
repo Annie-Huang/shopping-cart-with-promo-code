@@ -6,7 +6,7 @@ import './App.css';
 import ProductList from "./components/ProductList";
 import ShoppingCart from "./components/ShoppingCart";
 
-function App() {
+const App = () => {
     return (
         <div className="container-fluid">
             <h1>Please select your products from below...</h1>
