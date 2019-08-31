@@ -8,6 +8,7 @@ C:\tmp\shopping-cart-with-promo-code>npm install redux react-redux redux-thunk -
 C:\tmp\shopping-cart-with-promo-code>npm install redux-immutable-state-invariant --save-dev
 C:\tmp\shopping-cart-with-promo-code>npm install prop-types --save
 C:\tmp\shopping-cart-with-promo-code>npm install lodash.sumby --save
+C:\tmp\shopping-cart-with-promo-code>npm install toastr --save
 
 Todo:
 1. Create ProductComponent.
