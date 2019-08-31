@@ -10,6 +10,8 @@ C:\tmp\shopping-cart-with-promo-code>npm install prop-types --save
 C:\tmp\shopping-cart-with-promo-code>npm install lodash.sumby --save
 C:\tmp\shopping-cart-with-promo-code>npm install toastr --save
 C:\tmp\shopping-cart-with-promo-code>npm install redux-mock-store --save-dev
+C:\tmp\shopping-cart-with-promo-code>npm install enzyme enzyme-adapter-react-16 --save-dev
+C:\tmp\shopping-cart-with-promo-code>npm install enzyme-to-json --save-dev
 
 Todo:
 1. Create ProductComponent.
