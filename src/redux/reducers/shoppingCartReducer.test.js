@@ -53,7 +53,8 @@ describe('shoppingCartReducer', () => {
         expect(newState[0].product.id).toBe('wf');
         expect(newState[0].quantity).toEqual(1);
         expect(newState[1].product.id).toBe('docgen');
-        expect(newState[1].quantity).toEqual(1);
+        expect(newState[1].quantity).toEqual(199);
+        expect(newState[1].subTotal).toEqual(1988.01);
     });
 
     it('should remove cartItem if the updated quantity is zero when passed UPDATE_ITEM_IN_CART', () => {
@@ -78,7 +79,7 @@ describe('shoppingCartReducer', () => {
         // assert
         expect(newState.length).toEqual(1);
         expect(newState[0].product.id).toBe('docgen');
-        expect(newState[0].quantity).toEqual(2);
+        expect(newState[0].quantity).toEqual(200);
     });
 
     it('should set cartItems when passed EMPTY_ITEM_IN_CART', () => {

@@ -5,7 +5,8 @@
             "name": "Workflow",
             "price": 199.99
         },
-        "quantity": 1
+        "quantity": 1,
+        "subTotal": 199.99
     },
     {
         "product": {
@@ -13,6 +14,7 @@
             "name": "Document Generation",
             "price": 9.99
         },
-        "quantity": 2
+        "quantity": 200,
+        "subTotal": 1998
     }
 ]
