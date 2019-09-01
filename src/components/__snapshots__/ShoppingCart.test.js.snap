@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShoppingCart presentation should render ShoppingCart component according to the cartItems information 1`] = `
+<Fragment>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header bg-info text-white"
+    >
+      <h3
+        className="card-title"
+      >
+        Your Basket:
+      </h3>
+    </div>
+    <div
+      className="card-body"
+    >
+      <div
+        className="row"
+        key="0"
+      >
+        <div
+          className="col-md-2"
+        >
+          Workflow
+        </div>
+        <div
+          className="col-md-2"
+        >
+          Unit Price: $
+          199.99
+        </div>
+        <div
+          className="col-md-2"
+        >
+          Quantity: 
+          1
+        </div>
+        <div
+          className="col-md-2"
+        >
+          Subtotal: $
+          199.99
+        </div>
+      </div>
+      <div
+        className="row"
+        key="1"
+      >
+        <div
+          className="col-md-2"
+        >
+          Document Generation
+        </div>
+        <div
+          className="col-md-2"
+        >
+          Unit Price: $
+          9.99
+        </div>
+        <div
+          className="col-md-2"
+        >
+          Quantity: 
+          200
+        </div>
+        <div
+          className="col-md-2"
+        >
+          Subtotal: $
+          1998
+        </div>
+      </div>
+      <br />
+      <div
+        className="row"
+      >
+        <div
+          className="col-md-2"
+        >
+          <h3
+            className="card-title"
+            id="subTotal"
+          >
+            SubTotal: $
+            0
+          </h3>
+        </div>
+        <div
+          className="col-md-2"
+        >
+          <button
+            className="btn btn-sm btn-primary"
+            onClick={[Function]}
+            type="button"
+          >
+            Clear Cart
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="card-footer"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-sm-2"
+        >
+          Discount Code:
+        </div>
+        <input
+          className="col-sm-1"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+        <div
+          className="col-sm-4"
+        >
+          <button
+            className="btn btn-sm btn-primary"
+            onClick={[Function]}
+            type="button"
+          >
+            Apply Code
+          </button>
+            
+          <button
+            className="btn btn-sm btn-secondary"
+            onClick={[Function]}
+            type="button"
+          >
+            Clear Code
+          </button>
+        </div>
+      </div>
+      <br />
+      <div
+        className="row"
+      >
+        <div
+          className="col-sm-12"
+          id="discount"
+        >
+          You have save: $
+          0
+        </div>
+      </div>
+      <br />
+      <div
+        className="row"
+      >
+        <div
+          className="col-md-12"
+        >
+          <h3
+            className="card-title"
+            id="total"
+          >
+            Total: $
+            0
+          </h3>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-lg-2"
+        >
+          <button
+            className="btn btn-lg btn-primary"
+            type="button"
+          >
+            Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;

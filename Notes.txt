@@ -21,6 +21,8 @@ Todo:
 7. Do eslint.
 10. Unit test.
 11. Fix the commented out test in ProductList.test.js
+12. Use useSelect and useDispatch...
+13. Try to use LESS or SASS
 
 Done:
 3. toaster
