@@ -69,7 +69,7 @@ export const ShoppingCart  = ({
                         <div className='col-md-2'>
                             <button type="button"
                                     className="btn btn-sm btn-primary"
-                                    onClick={() => clearShoppingCart()}
+                                    onClick={clearShoppingCart}
                             >Clear Cart</button>
                         </div>
                     </div>
@@ -81,12 +81,12 @@ export const ShoppingCart  = ({
                         <div className='col-sm-4'>
                             <button type="button"
                                     className="btn btn-sm btn-primary"
-                                    onClick={() => applyPromoCode()}
+                                    onClick={applyPromoCode}
                             >Apply Code</button>
                             &nbsp;&nbsp;
                             <button type="button"
                                     className="btn btn-sm btn-secondary"
-                                    onClick={() => clearPromoCode()}
+                                    onClick={clearPromoCode}
                             >Clear Code</button>
                         </div>
                     </div>

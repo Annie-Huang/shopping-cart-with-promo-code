@@ -87,7 +87,7 @@ describe('Store', () => {
         store.dispatch(action);
         action = shoppingCartActions.clearCart();
         store.dispatch(action);
-        
+
         // assert
         actual = store.getState().cartItems;
         expect(actual.length).toEqual(0);
