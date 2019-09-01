@@ -1,30 +1,30 @@
 import * as types from '../actions/actionTypes';
-import ajaxStatusReducer from "./ajaxStatusReducer";
+import apiStatusReducer from "./apiStatusReducer";
 
-describe('ajaxStatusReducer', () => {
-    it('should increase state by 1 when passed BEGIN_AJAX_CALL', () => {
+describe('apiStatusReducer', () => {
+    it('should increase state by 1 when passed BEGIN_API_CALL', () => {
         // arrange
         const initialState = 1;
         const action = {
-            type: types.BEGIN_AJAX_CALL
+            type: types.BEGIN_API_CALL
         };
 
         // act
-        const newState = ajaxStatusReducer(initialState, action);
+        const newState = apiStatusReducer(initialState, action);
 
         // assert
         expect(newState).toEqual(2);
     });
 
-    it('should decrease state by 1 when passed AJAX_CALL_ERROR', () => {
+    it('should decrease state by 1 when passed API_CALL_ERROR', () => {
         // arrange
         const initialState = 1;
         const action = {
-            type: types.AJAX_CALL_ERROR
+            type: types.API_CALL_ERROR
         };
 
         // act
-        const newState = ajaxStatusReducer(initialState, action);
+        const newState = apiStatusReducer(initialState, action);
 
         // assert
         expect(newState).toEqual(0);
@@ -38,7 +38,7 @@ describe('ajaxStatusReducer', () => {
         };
 
         // act
-        const newState = ajaxStatusReducer(initialState, action);
+        const newState = apiStatusReducer(initialState, action);
 
         // assert
         expect(newState).toEqual(0);
@@ -52,6 +52,6 @@ describe('ajaxStatusReducer', () => {
         };
 
         // assert
-        expect(ajaxStatusReducer(initialState, action)).toBe(initialState);
+        expect(apiStatusReducer(initialState, action)).toBe(initialState);
     });
 });

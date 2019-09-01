@@ -1,6 +1,6 @@
 import * as types from './actionTypes';
 import DiscountCodeApi from '../../api/mockDiscountCodeApi';
-import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
+import {beginApiCall, apiCallError} from './apiStatusActions';
 
 export const loadDiscountCodesSuccess = (discountCodes) => ({
     type: types.LOAD_DISCOUNT_CODES_SUCCESS,
@@ -9,11 +9,11 @@ export const loadDiscountCodesSuccess = (discountCodes) => ({
 
 export const loadDiscountCodes = () => {
     return dispatch => {
-        dispatch(beginAjaxCall());
+        dispatch(beginApiCall());
         return DiscountCodeApi.loadDiscountCodes().then(discountCodes => {
             dispatch(loadDiscountCodesSuccess(discountCodes));
         }).catch(error => {
-            dispatch(ajaxCallError());
+            dispatch(apiCallError());
             throw(error);
         });
     };

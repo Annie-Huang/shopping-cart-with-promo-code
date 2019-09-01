@@ -23,14 +23,14 @@ const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
 
 describe('productActions Thunk', () => {
-    it('should create BEGIN_AJAX_CALL and LOAD_PRODUCTS_SUCCESS when loading products', (done) => {
+    it('should create BEGIN_API_CALL and LOAD_PRODUCTS_SUCCESS when loading products', (done) => {
 
         // This test takes a bit longer because of the delay set in \shopping-cart-react\src\api\delay.js
         // But I will keep the delay because it will make running the app more real.
         const store = mockStore({products: []});
         store.dispatch(productActions.loadProducts()).then(() => {
             const actions = store.getActions();
-            expect(actions[0].type).toEqual(types.BEGIN_AJAX_CALL);
+            expect(actions[0].type).toEqual(types.BEGIN_API_CALL);
             expect(actions[1].type).toEqual(types.LOAD_PRODUCTS_SUCCESS);
             done();
         });
