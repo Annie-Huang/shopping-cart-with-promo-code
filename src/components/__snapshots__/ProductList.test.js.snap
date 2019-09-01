@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductList presentation should render ProductList component 1`] = `
+<Fragment>
+  <div
+    className="card-deck"
+  >
+    <div
+      className="card"
+      key="wf"
+    >
+      <div
+        className="card-header text-center text-white bg-primary"
+      >
+        <h4
+          className="card-title"
+        >
+          Workflow
+        </h4>
+      </div>
+      <div
+        className="card-body"
+      >
+        <div
+          className="row"
+        >
+          <div
+            className="col-md-3"
+          >
+            Price:
+          </div>
+          <div
+            className="col-md-7"
+          >
+            $
+            199.99
+          </div>
+        </div>
+      </div>
+      <div
+        className="card-footer"
+      >
+        <button
+          className="btn btn-primary"
+          onClick={[Function]}
+          type="button"
+        >
+          Add 1 item
+        </button>
+          
+        <button
+          className="btn btn-secondary"
+          onClick={[Function]}
+          type="button"
+        >
+          Remove 1 item
+        </button>
+      </div>
+    </div>
+    <div
+      className="card"
+      key="docgen"
+    >
+      <div
+        className="card-header text-center text-white bg-primary"
+      >
+        <h4
+          className="card-title"
+        >
+          Document Generation
+        </h4>
+      </div>
+      <div
+        className="card-body"
+      >
+        <div
+          className="row"
+        >
+          <div
+            className="col-md-3"
+          >
+            Price:
+          </div>
+          <div
+            className="col-md-7"
+          >
+            $
+            9.99
+          </div>
+        </div>
+      </div>
+      <div
+        className="card-footer"
+      >
+        <button
+          className="btn btn-primary"
+          onClick={[Function]}
+          type="button"
+        >
+          Add 1 item
+        </button>
+          
+      </div>
+    </div>
+    <div
+      className="card"
+      key="form"
+    >
+      <div
+        className="card-header text-center text-white bg-primary"
+      >
+        <h4
+          className="card-title"
+        >
+          Form
+        </h4>
+      </div>
+      <div
+        className="card-body"
+      >
+        <div
+          className="row"
+        >
+          <div
+            className="col-md-3"
+          >
+            Price:
+          </div>
+          <div
+            className="col-md-7"
+          >
+            $
+            99.99
+          </div>
+        </div>
+      </div>
+      <div
+        className="card-footer"
+      >
+        <button
+          className="btn btn-primary"
+          onClick={[Function]}
+          type="button"
+        >
+          Add 1 item
+        </button>
+          
+        <button
+          className="btn btn-secondary"
+          onClick={[Function]}
+          type="button"
+        >
+          Remove 1 item
+        </button>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div
+    className="warning"
+  >
+    Test CSS Modules
+  </div>
+  <h5>
+    Available discount codes are as following. Please keep in mind that you can only apply for one.
+  </h5>
+  <div
+    key="RRD4D32"
+  >
+    RRD4D32
+     : 
+    10% discount for orders above $1000 (pre-discount)
+  </div>
+  <div
+    key="44F4T11"
+  >
+    44F4T11
+     : 
+    15% discount for orders above $1500 (pre-discount)
+  </div>
+  <div
+    key="FF9543D1"
+  >
+    FF9543D1
+     : 
+    Reduces the docgen price to $8.99 a unit when at least 10 documents are purchased
+  </div>
+  <div
+    key="YYGWKJD"
+  >
+    YYGWKJD
+     : 
+    Reduces the form price to $89.99 a unit when at least 1 wf is purchased
+  </div>
+</Fragment>
+`;

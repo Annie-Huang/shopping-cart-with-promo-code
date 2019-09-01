@@ -16,15 +16,17 @@ export const ProductList = ({
     loadDiscountCodes,
 }) => {
     useEffect(() => {
-        loadProducts().catch(error => {
-            alert("Loading products failed" + error);
-        });
+        loadProducts();
+        // loadProducts().catch(error => {
+        //     alert("Loading products failed" + error);
+        // });
     }, [loadProducts]);
 
     useEffect(() => {
-        loadDiscountCodes().catch(error => {
-            alert("Loading discount codes failed" + error);
-        });
+        loadDiscountCodes();
+        // loadDiscountCodes().catch(error => {
+        //     alert("Loading discount codes failed" + error);
+        // });
     }, [loadDiscountCodes]);
 
     const updateShoppingCart = (data) => {
@@ -69,7 +71,7 @@ export const ProductList = ({
     );
 
     return (
-        products.length === 0 || discountCodes === 0 ?
+        products.length === 0 || discountCodes.length === 0 ?
             <Spinner/> :
             <>
                 <div className="card-deck">
