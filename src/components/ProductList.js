@@ -16,17 +16,15 @@ export const ProductList = ({
     loadDiscountCodes,
 }) => {
     useEffect(() => {
-        loadProducts();
-        // loadProducts().catch(error => {
-        //     alert("Loading products failed" + error);
-        // });
+        loadProducts().catch(error => {
+            alert("Loading products failed" + error);
+        });
     }, [loadProducts]);
 
     useEffect(() => {
-        loadDiscountCodes();
-        // loadDiscountCodes().catch(error => {
-        //     alert("Loading discount codes failed" + error);
-        // });
+        loadDiscountCodes().catch(error => {
+            alert("Loading discount codes failed" + error);
+        });
     }, [loadDiscountCodes]);
 
     const updateShoppingCart = (data) => {
