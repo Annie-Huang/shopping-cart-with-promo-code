@@ -10,16 +10,16 @@ export const ShoppingCart  = ({
     cartItems,
     clearCart
 }) => {
-    const [total, setTotal] = useState(0);
+    const [subTotal, setSubTotal] = useState(0);
     const [promoCode, setPromoCode] = useState('');
     const [discountAmount, setDiscountAmount] = useState(0);
 
 
     useEffect(() => {
-        const newTotal = Number(sumby(cartItems, 'subTotal').toFixed(2));
-        setTotal(newTotal); // cannot use total straightaway because all setXxx methods async calls.
+        const newSubTotal = Number(sumby(cartItems, 'subTotal').toFixed(2));
+        setSubTotal(newSubTotal); // cannot use total straightaway because all setXxx methods async calls.
         setDiscountAmount(
-            promoCode === '' ? 0 : ShoppingCartService.calculateDiscountAmount(cartItems, newTotal, promoCode)
+            promoCode === '' ? 0 : ShoppingCartService.calculateDiscountAmount(cartItems, newSubTotal, promoCode)
         );
     }, [cartItems]);
 
@@ -36,7 +36,7 @@ export const ShoppingCart  = ({
     const applyPromoCode = () => {
         console.log('promoCode=', promoCode);
         setDiscountAmount(
-            promoCode === '' ? 0 : ShoppingCartService.calculateDiscountAmount(cartItems, total, promoCode)
+            promoCode === '' ? 0 : ShoppingCartService.calculateDiscountAmount(cartItems, subTotal, promoCode)
         );
         toastr.success(`Apply discount code success`);
     };
@@ -64,7 +64,7 @@ export const ShoppingCart  = ({
                     <br/>
                     <div className='row'>
                         <div className='col-md-2'>
-                            <h3 className="card-title">SubTotal: ${total}</h3>
+                            <h3 id='subTotal' className="card-title">SubTotal: ${subTotal}</h3>
                         </div>
                         <div className='col-md-2'>
                             <button type="button"
@@ -92,12 +92,12 @@ export const ShoppingCart  = ({
                     </div>
                     <br/>
                     <div className='row'>
-                        <div className='col-sm-12'>You have save: ${discountAmount}</div>
+                        <div id='discount' className='col-sm-12'>You have save: ${discountAmount}</div>
                     </div>
                     <br/>
                     <div className='row'>
                         <div className='col-md-12'>
-                            <h3 className="card-title">Total: ${total-discountAmount}</h3>
+                            <h3 id='total' className="card-title">Total: ${Number((subTotal-discountAmount).toFixed(2))}</h3>
                         </div>
                     </div>
                     <div className='row'>
