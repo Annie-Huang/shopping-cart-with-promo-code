@@ -1,0 +1,87 @@
+import React,  { useEffect } from 'react';
+import {connect, useDispatch, useSelector} from 'react-redux';
+import PropTypes from 'prop-types';
+import * as productActions from "../redux/actions/productActions";
+import * as discountCodeActions from "../redux/actions/discountCodeActions";
+import * as shoppingCartActions from "../redux/actions/shoppingCartActions";
+import Spinner from "./common/Spinner";
+import styles from "./ProductList.module.css";
+import toastr from 'toastr/toastr';
+
+const ProductList = () => {
+    const dispatch = useDispatch();
+
+    dispatch(productActions.loadProducts());
+    dispatch(discountCodeActions.loadDiscountCodes());
+
+    const updateShoppingCart = (data) => {
+        dispatch(shoppingCartActions.updateItemInCart(data));
+        const action = data.quantity === 1 ? 'Add' : 'Remove';
+        toastr.success(`${action} one ${data.product.name} success`);
+    };
+
+    const products = useSelector(state => state.products);
+    const cartItems = useSelector(state => state.cartItems);
+
+    const productList = updateProductsWithInCartInfo(products, cartItems).map(product =>
+        <div className="card" key={product.id}>
+            <div className="card-header text-center text-white bg-primary">
+                <h4 className="card-title">{product.name}</h4>
+            </div>
+            <div className="card-body">
+                <div className='row'>
+                    <div className='col-md-3'>Price:</div>
+                    <div className='col-md-7'>${product.price}</div>
+                </div>
+            </div>
+            <div className="card-footer">
+                <button type="button"
+                        className="btn btn-primary"
+                        onClick={() => updateShoppingCart({product, quantity: 1})}
+                >
+                    Add 1 item
+                </button>
+                &nbsp;&nbsp;
+                {product.productInCart &&
+                <button type="button"
+                        className="btn btn-secondary"
+                        onClick={() => updateShoppingCart({product, quantity: -1})}
+                >
+                    Remove 1 item
+                </button>
+                }
+            </div>
+        </div>
+    );
+
+    const discountCodes = useSelector(state => state.discountCodes);
+    const discountCodeList = discountCodes.map(discountCode =>
+        <div key={discountCode.id}>{discountCode.id} : {discountCode.description}</div>
+    );
+
+    return (
+        products.length === 0 || discountCodes.length === 0 ?
+            <Spinner/> :
+            <>
+                <div className="card-deck">
+                    {productList}
+                </div>
+                <br/>
+                <div className={styles.warning}>Test CSS Modules</div>
+                <h5>Available discount codes are as following. Please keep in mind that you can only apply for one.</h5>
+                {discountCodeList}
+            </>
+    )
+};
+
+export const updateProductsWithInCartInfo = (products, cartItems) => {
+    const updatedProducts = [];
+    products.forEach(product => {
+        const matchCartItem = cartItems.find((cartItem) => cartItem.product.id === product.id);
+        updatedProducts.push({...product, productInCart: !!matchCartItem});
+    });
+
+    return updatedProducts;
+};
+
+export default ProductList
