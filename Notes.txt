@@ -20,7 +20,6 @@ Todo:
 6. Use express and json-server rather than mock api for backend.
 7. Do eslint.
 11. Fix the commented out test in ProductList.test.js
-12. Use useSelect and useDispatch...
 13. Try to use LESS or SASS
 
 Done:
@@ -29,3 +28,4 @@ Done:
 8. Handle adding multiple floating number in javascript
 9. Handle remove item from the list.
 10. Unit test.
+12. Use useSelect and useDispatch... Create backup file for this. There is not online testing solution and I don't want to just test match snapshot. So roll back.
