@@ -41,8 +41,8 @@ exports[`ShoppingCart presentation should render ShoppingCart component accordin
         <div
           className="col-md-2"
         >
-          Subtotal: $
-          199.99
+          Subtotal: 
+          $199.99
         </div>
       </div>
       <div
@@ -69,8 +69,8 @@ exports[`ShoppingCart presentation should render ShoppingCart component accordin
         <div
           className="col-md-2"
         >
-          Subtotal: $
-          1998
+          Subtotal: 
+          $1,998.00
         </div>
       </div>
       <br />

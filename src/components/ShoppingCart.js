@@ -30,7 +30,7 @@ export const ShoppingCart  = ({
             <div className='col-md-2'>{cartItem.product.name}</div>
             <div className='col-md-2'>Unit Price: ${cartItem.product.price}</div>
             <div className='col-md-2'>Quantity: {cartItem.quantity}</div>
-            <div className='col-md-2'>Subtotal: ${cartItem.subTotal}</div>
+            <div className='col-md-2'>Subtotal: {formatCurrency(cartItem.subTotal)}</div>
         </div>
     );
 
