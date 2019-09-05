@@ -84,8 +84,8 @@ exports[`ShoppingCart presentation should render ShoppingCart component accordin
             className="card-title"
             id="subTotal"
           >
-            SubTotal: $
-            0
+            SubTotal: 
+            $0.00
           </h3>
         </div>
         <div
@@ -146,8 +146,8 @@ exports[`ShoppingCart presentation should render ShoppingCart component accordin
           className="col-sm-12"
           id="discount"
         >
-          You have save: $
-          0
+          You have save: 
+          $0.00
         </div>
       </div>
       <br />
@@ -161,8 +161,8 @@ exports[`ShoppingCart presentation should render ShoppingCart component accordin
             className="card-title"
             id="total"
           >
-            Total: $
-            0
+            Total: 
+            $0.00
           </h3>
         </div>
       </div>

@@ -11,16 +11,23 @@ export const ShoppingCart  = ({
     clearCart
 }) => {
     const [subTotal, setSubTotal] = useState(0);
+    const [subTotalStr, setSubTotalStr] = useState('$0.00');
     const [promoCode, setPromoCode] = useState('');
     const [discountAmount, setDiscountAmount] = useState(0);
+    const [discountAmountStr, setDiscountAmountStr] = useState('$0.00');
+    const [totalStr, setTotalStr] = useState('$0.00');
 
 
     useEffect(() => {
         const newSubTotal = Number(sumby(cartItems, 'subTotal').toFixed(2));
         setSubTotal(newSubTotal); // cannot use total straightaway because all setXxx methods async calls.
-        setDiscountAmount(
-            promoCode === '' ? 0 : ShoppingCartService.calculateDiscountAmount(cartItems, newSubTotal, promoCode)
-        );
+        setSubTotalStr(currencyFormat(newSubTotal));
+
+        const newDiscountAmount = promoCode === '' ? 0 : ShoppingCartService.calculateDiscountAmount(cartItems, newSubTotal, promoCode);
+        setDiscountAmount(newDiscountAmount);
+        setDiscountAmountStr(currencyFormat(newDiscountAmount));
+
+        setTotalStr(currencyFormat(newSubTotal-newDiscountAmount));
     }, [cartItems]);
 
 
@@ -35,21 +42,29 @@ export const ShoppingCart  = ({
 
     const applyPromoCode = () => {
         console.log('promoCode=', promoCode);
-        setDiscountAmount(
-            promoCode === '' ? 0 : ShoppingCartService.calculateDiscountAmount(cartItems, subTotal, promoCode)
-        );
+        const newDiscountAmount = promoCode === '' ? 0 : ShoppingCartService.calculateDiscountAmount(cartItems, subTotal, promoCode);
+        console.log('newDiscountAmount=', newDiscountAmount);
+        setDiscountAmount(newDiscountAmount);
+        setDiscountAmountStr(currencyFormat(newDiscountAmount));
+        setTotalStr(currencyFormat(subTotal-newDiscountAmount));
         toastr.success(`Apply discount code success`);
     };
 
     const clearPromoCode = () => {
         setPromoCode('');
         setDiscountAmount(0);
+        setDiscountAmountStr(currencyFormat(0));
+        setTotalStr(currencyFormat(subTotal));
         toastr.success(`Clear discount code success`);
     };
 
     const clearShoppingCart = () => {
         clearCart();
         toastr.success(`Clear cart success`);
+    };
+
+    const currencyFormat = (num) => {
+        return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
     };
 
     return (
@@ -64,7 +79,7 @@ export const ShoppingCart  = ({
                     <br/>
                     <div className='row'>
                         <div className='col-md-2'>
-                            <h3 id='subTotal' className="card-title">SubTotal: ${subTotal}</h3>
+                            <h3 id='subTotal' className="card-title">SubTotal: {subTotalStr}</h3>
                         </div>
                         <div className='col-md-2'>
                             <button type="button"
@@ -92,12 +107,12 @@ export const ShoppingCart  = ({
                     </div>
                     <br/>
                     <div className='row'>
-                        <div id='discount' className='col-sm-12'>You have save: ${discountAmount}</div>
+                        <div id='discount' className='col-sm-12'>You have save: {discountAmountStr}</div>
                     </div>
                     <br/>
                     <div className='row'>
                         <div className='col-md-12'>
-                            <h3 id='total' className="card-title">Total: ${Number((subTotal-discountAmount).toFixed(2))}</h3>
+                            <h3 id='total' className="card-title">Total: {totalStr}</h3>
                         </div>
                     </div>
                     <div className='row'>
@@ -110,6 +125,8 @@ export const ShoppingCart  = ({
         </>
     );
 };
+
+
 
 ShoppingCart.propTypes = {
     cartItems: PropTypes.array.isRequired,

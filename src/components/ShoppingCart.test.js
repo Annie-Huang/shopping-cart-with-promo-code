@@ -38,9 +38,9 @@ describe('ShoppingCart presentation', () => {
 
         applyCodeButton.simulate('click');
         // 199.99 + 1998 = 2197.99
-        expect(wrapper.find('#subTotal').text()).toEqual('SubTotal: $2197.99');
-        expect(wrapper.find('#discount').text()).toEqual('You have save: $219.8');
-        expect(wrapper.find('#total').text()).toEqual('Total: $1978.19');
+        expect(wrapper.find('#subTotal').text()).toEqual('SubTotal: $2,197.99');
+        expect(wrapper.find('#discount').text()).toEqual('You have save: $219.80');
+        expect(wrapper.find('#total').text()).toEqual('Total: $1,978.19');
     });
 
     it('#applyPromoCode should be called when clicking Apply Code button. And if promoCode is invalid, then discount amount remain 0', () => {
@@ -53,9 +53,9 @@ describe('ShoppingCart presentation', () => {
 
         applyCodeButton.simulate('click');
         // 199.99 + 1998 = 2197.99
-        expect(wrapper.find('#subTotal').text()).toEqual('SubTotal: $2197.99');
-        expect(wrapper.find('#discount').text()).toEqual('You have save: $0');
-        expect(wrapper.find('#total').text()).toEqual('Total: $2197.99');
+        expect(wrapper.find('#subTotal').text()).toEqual('SubTotal: $2,197.99');
+        expect(wrapper.find('#discount').text()).toEqual('You have save: $0.00');
+        expect(wrapper.find('#total').text()).toEqual('Total: $2,197.99');
     });
 
     it('#clearPromoCode should be called when clicking Clear Code button. And if promoCode input field will be clear and discount amount remain 0', () => {
@@ -72,9 +72,9 @@ describe('ShoppingCart presentation', () => {
 
         expect(wrapper.find('input').instance().value).toEqual('');
         // 199.99 + 1998 = 2197.99
-        expect(wrapper.find('#subTotal').text()).toEqual('SubTotal: $2197.99');
-        expect(wrapper.find('#discount').text()).toEqual('You have save: $0');
-        expect(wrapper.find('#total').text()).toEqual('Total: $2197.99');
+        expect(wrapper.find('#subTotal').text()).toEqual('SubTotal: $2,197.99');
+        expect(wrapper.find('#discount').text()).toEqual('You have save: $0.00');
+        expect(wrapper.find('#total').text()).toEqual('Total: $2,197.99');
     });
 
     it('#update cartItems will trigger discount amount, total should be recalculated', () => {
@@ -87,9 +87,9 @@ describe('ShoppingCart presentation', () => {
 
         applyCodeButton.simulate('click');
         // 199.99 + 1998 = 2197.99
-        expect(wrapper.find('#subTotal').text()).toEqual('SubTotal: $2197.99');
-        expect(wrapper.find('#discount').text()).toEqual('You have save: $219.8');
-        expect(wrapper.find('#total').text()).toEqual('Total: $1978.19');
+        expect(wrapper.find('#subTotal').text()).toEqual('SubTotal: $2,197.99');
+        expect(wrapper.find('#discount').text()).toEqual('You have save: $219.80');
+        expect(wrapper.find('#total').text()).toEqual('Total: $1,978.19');
 
 
         // What we really want to test is from this section onwards...
@@ -99,8 +99,8 @@ describe('ShoppingCart presentation', () => {
         wrapper.setProps({ cartItems: newCartItems });
 
         // // 399.98 + 1998 = 2397.98
-        expect(wrapper.find('#subTotal').text()).toEqual('SubTotal: $2397.98');
-        expect(wrapper.find('#discount').text()).toEqual('You have save: $239.8');
-        expect(wrapper.find('#total').text()).toEqual('Total: $2158.18');
+        expect(wrapper.find('#subTotal').text()).toEqual('SubTotal: $2,397.98');
+        expect(wrapper.find('#discount').text()).toEqual('You have save: $239.80');
+        expect(wrapper.find('#total').text()).toEqual('Total: $2,158.18');
     });
 });
