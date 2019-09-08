@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 // !!!! Don't ever use
 // import { ProductList } from "./components/ProductList/ProductList";
 // It will failed the build, we need the default one that got connect, not the named one use for testing.
@@ -14,6 +14,6 @@ const App = () => {
             <ShoppingCart/>
         </div>
     );
-}
+};
 
 export default App;
