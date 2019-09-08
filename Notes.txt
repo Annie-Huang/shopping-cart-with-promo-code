@@ -1,6 +1,7 @@
 https://scotch.io/tutorials/using-sass-in-create-react-app-v2
 https://create-react-app.dev/docs/adding-custom-environment-variables#adding-development-environment-variables-in-env
 https://create-react-app.dev/docs/advanced-configuration
+https://jestjs.io/docs/en/mock-functions
 
 http://localhost:5001/
 
