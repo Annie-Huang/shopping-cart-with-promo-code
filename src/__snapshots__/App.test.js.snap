@@ -7,6 +7,11 @@ exports[`App presentation should render App component 1`] = `
   <h1>
     Please select your products from below...
   </h1>
+  <div
+    className="scss-warning"
+  >
+    Test SASS Configure
+  </div>
   <Connect(ProductList) />
   <Connect(ShoppingCart) />
 </div>
