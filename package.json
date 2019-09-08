@@ -22,6 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start-api": "node express/index"
+    "start-api-watch": "node express/index"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,6 +43,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.4.0",
+    "nodemon": "^1.19.2",
     "redux-immutable-state-invariant": "^2.1.0",
     "redux-mock-store": "^1.5.3"
   }

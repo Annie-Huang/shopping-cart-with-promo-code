@@ -22,6 +22,7 @@ C:\tmp\shopping-cart-with-promo-code>npm install enzyme enzyme-adapter-react-16 
 C:\tmp\shopping-cart-with-promo-code>npm install enzyme-to-json --save-dev
 C:\tmp\shopping-cart-with-promo-code>npm install node-sass
 C:\tmp\shopping-cart-with-promo-code>npm install express
+C:\tmp\shopping-cart-with-promo-code>npm install nodemon --save-dev
 
 Todo:
 1. Create ProductComponent.
