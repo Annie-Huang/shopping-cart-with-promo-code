@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import DiscountCodeApi from '../../api/mockDiscountCodeApi';
+import DiscountCodeApi from '../../mockApi/mockDiscountCodeApi';
 import {beginApiCall, apiCallError} from './apiStatusActions';
 
 export const loadDiscountCodesSuccess = (discountCodes) => ({

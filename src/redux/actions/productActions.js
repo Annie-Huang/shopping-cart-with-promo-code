@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import ProductApi from '../../api/mockProductApi';
+import ProductApi from '../../mockApi/mockProductApi';
 import {beginApiCall, apiCallError} from './apiStatusActions';
 
 export const loadProductsSuccess = (products) => ({
