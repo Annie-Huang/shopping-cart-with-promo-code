@@ -1,3 +1,7 @@
+https://scotch.io/tutorials/using-sass-in-create-react-app-v2
+
+===============
+
 C:\tmp>npx create-react-app shopping-cart-with-promo-code
 C:\tmp>cd shopping-cart-with-promo-code
 C:\tmp\shopping-cart-with-promo-code>git remote add origin git@github.com:Annie-Huang/shopping-cart-with-promo-code.git
@@ -12,6 +16,7 @@ C:\tmp\shopping-cart-with-promo-code>npm install toastr --save
 C:\tmp\shopping-cart-with-promo-code>npm install redux-mock-store --save-dev
 C:\tmp\shopping-cart-with-promo-code>npm install enzyme enzyme-adapter-react-16 --save-dev
 C:\tmp\shopping-cart-with-promo-code>npm install enzyme-to-json --save-dev
+C:\tmp\shopping-cart-with-promo-code>npm install node-sass
 
 Todo:
 1. Create ProductComponent.
