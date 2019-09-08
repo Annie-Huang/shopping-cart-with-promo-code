@@ -29,7 +29,6 @@ C:\tmp\shopping-cart-with-promo-code>npm install npm-run-all --save-dev
 
 Todo:
 1. Create ProductComponent.
-5. List the discount code description when discount code is apply. Error msg if it's invalid discount code.
 11. Fix the commented out test in ProductList.test.js
 
 Done:
@@ -43,3 +42,4 @@ Done:
 13. Try to use LESS or SASS     << Create-react-app by default support SASS and CSS module.
 7. Do eslint.                   << Will not do this part as setting up custom eslint required to eject create-react-app. Create-react-app is indeed in a much lower standard than angular cli.
 6. Use express and json-server rather than mock api for backend.    << Don't need to use json-server as we are not sending carts to backup for update for this project.
+5. List the discount code description when discount code is apply. Error msg if it's invalid discount code.

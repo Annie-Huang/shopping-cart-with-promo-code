@@ -6,6 +6,7 @@ import ShoppingCartService from '../lib/ShoppingCartService';
 import * as shoppingCartActions from "../redux/actions/shoppingCartActions";
 import toastr from "toastr";
 import {formatCurrency} from "../lib/CurrencyUtil"
+import styles from "./ShoppingCart.module.css";
 
 export const ShoppingCart  = ({
     cartItems,
@@ -14,7 +15,9 @@ export const ShoppingCart  = ({
     const [subTotal, setSubTotal] = useState(0);
     const [promoCode, setPromoCode] = useState('');
     const [discountAmount, setDiscountAmount] = useState(0);
+    const [isDiscountCodeValid, setDiscountCodeValid] = useState(true);
 
+    const validDiscountCodes = ['', 'RRD4D32', '44F4T11', 'FF9543D1', 'YYGWKJD'];
 
     useEffect(() => {
         const newSubTotal = Number(sumby(cartItems, 'subTotal').toFixed(2));
@@ -39,17 +42,24 @@ export const ShoppingCart  = ({
         setDiscountAmount(
             promoCode === '' ? 0 : ShoppingCartService.calculateDiscountAmount(cartItems, subTotal, promoCode)
         );
+        setDiscountCodeValid(validDiscountCodes.includes(promoCode));
         toastr.success(`Apply discount code success`);
     };
 
-    const clearPromoCode = () => {
+    const resetPromoteCodeAndDiscountAmount = () => {
         setPromoCode('');
         setDiscountAmount(0);
+        setDiscountCodeValid(true);
+    };
+
+    const clearPromoCode = () => {
+        resetPromoteCodeAndDiscountAmount();
         toastr.success(`Clear discount code success`);
     };
 
     const clearShoppingCart = () => {
         clearCart();
+        resetPromoteCodeAndDiscountAmount();
         toastr.success(`Clear cart success`);
     };
 
@@ -92,6 +102,7 @@ export const ShoppingCart  = ({
                         </div>
                     </div>
                     <br/>
+                    {!isDiscountCodeValid &&  <div className={styles.error}>The Discount code you applied is invalid. Please try again.</div>}
                     <div className='row'>
                         <div id='discount' className='col-sm-12'>You have save: {formatCurrency(discountAmount)}</div>
                     </div>
