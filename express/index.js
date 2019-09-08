@@ -8,10 +8,10 @@ const app = express();
 // Init middleware
 app.use(logger);
 
-app.get('/', (req, res) => {
-    res.send('<h1>Hello World!</h1>');
-    // res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+// app.get('/', (req, res) => {
+//     res.send('<h1>Hello World!</h1>');
+//     // res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// });
 
 // Gets All products
 // app.get('/api/products', (req, res) => res.json(products));

@@ -29,7 +29,6 @@ C:\tmp\shopping-cart-with-promo-code>npm install axios
 Todo:
 1. Create ProductComponent.
 5. List the discount code description when discount code is apply. Error msg if it's invalid discount code.
-6. Use express and json-server rather than mock api for backend.
 11. Fix the commented out test in ProductList.test.js
 
 Done:
@@ -42,3 +41,4 @@ Done:
 12. Use useSelect and useDispatch... Create backup file for this. There is not online testing solution and I don't want to just test match snapshot. So roll back.
 13. Try to use LESS or SASS     << Create-react-app by default support SASS and CSS module.
 7. Do eslint.                   << Will not do this part as setting up custom eslint required to eject create-react-app. Create-react-app is indeed in a much lower standard than angular cli.
+6. Use express and json-server rather than mock api for backend.    << Don't need to use json-server as we are not sending carts to backup for update for this project.
