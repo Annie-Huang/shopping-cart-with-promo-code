@@ -26,7 +26,6 @@ C:\tmp\shopping-cart-with-promo-code>npm install nodemon --save-dev
 C:\tmp\shopping-cart-with-promo-code>npm install moment
 C:\tmp\shopping-cart-with-promo-code>npm install axios
 C:\tmp\shopping-cart-with-promo-code>npm install npm-run-all --save-dev
-C:\tmp\shopping-cart-with-promo-code>npm install fetch-mock --save-dev
 
 Todo:
 1. Create ProductComponent.
