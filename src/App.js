@@ -10,6 +10,7 @@ const App = () => {
     return (
         <div className="container-fluid">
             <h1>Please select your products from below...</h1>
+            <div className="scss-warning">Test SASS Modules</div>
             <ProductList />
             <ShoppingCart/>
         </div>

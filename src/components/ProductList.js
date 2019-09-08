@@ -6,6 +6,7 @@ import * as discountCodeActions from "../redux/actions/discountCodeActions";
 import * as shoppingCartActions from "../redux/actions/shoppingCartActions";
 import Spinner from "./common/Spinner";
 import styles from "./ProductList.module.css";
+import "./ProductList.scss";
 import toastr from 'toastr/toastr';
 
 export const ProductList = ({
@@ -77,6 +78,7 @@ export const ProductList = ({
                 </div>
                 <br/>
                 <div className={styles.warning}>Test CSS Modules</div>
+                <div className="scss-warning">Test SASS Modules</div>
                 <h5>Available discount codes are as following. Please keep in mind that you can only apply for one.</h5>
                 {discountCodeList}
             </>
