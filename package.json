@@ -21,8 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-api": "node express/index"
-    "start-api-watch": "node express/index"
+    "start-api": "node express/index",
+    "start-api-watch": "nodemon express/index"
   },
   "eslintConfig": {
     "extends": "react-app"
