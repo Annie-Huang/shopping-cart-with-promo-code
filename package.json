@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "express": "^4.17.1",
     "lodash.sumby": "^4.6.0",
@@ -40,6 +41,7 @@
       "last 1 safari version"
     ]
   },
+  "proxy": "http://localhost:5001",
   "devDependencies": {
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",

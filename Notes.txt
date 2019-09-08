@@ -24,6 +24,7 @@ C:\tmp\shopping-cart-with-promo-code>npm install node-sass
 C:\tmp\shopping-cart-with-promo-code>npm install express
 C:\tmp\shopping-cart-with-promo-code>npm install nodemon --save-dev
 C:\tmp\shopping-cart-with-promo-code>npm install moment
+C:\tmp\shopping-cart-with-promo-code>npm install axios
 
 Todo:
 1. Create ProductComponent.
