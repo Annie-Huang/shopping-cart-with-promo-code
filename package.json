@@ -8,7 +8,7 @@
     "express": "^4.17.1",
     "lodash.sumby": "^4.6.0",
     "moment": "^2.24.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -23,6 +23,7 @@
     "start-ui": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "coverage": "jest --coverage",
     "eject": "react-scripts eject",
     "start-api": "node express/index",
     "start-api-watch": "nodemon express/index"
@@ -51,5 +52,23 @@
     "npm-run-all": "^4.1.5",
     "redux-immutable-state-invariant": "^2.1.0",
     "redux-mock-store": "^1.5.3"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/express/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "coverageReporters": [
+      "text"
+    ]
   }
 }

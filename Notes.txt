@@ -44,3 +44,8 @@ Done:
 7. Do eslint.                   << Will not do this part as setting up custom eslint required to eject create-react-app. Create-react-app is indeed in a much lower standard than angular cli.
 6. Use express and json-server rather than mock api for backend.    << Don't need to use json-server as we are not sending carts to backup for update for this project.
 5. List the discount code description when discount code is apply. Error msg if it's invalid discount code.
+
+
+On 26/07/2020
+Install node-sass as dev dependency to get it working with the current node version in my window
+C:\tmp\shopping-cart-with-promo-code>npm update node-sass
